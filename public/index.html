@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rigor Salary — Negotiation Helper</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a4fa3'/><text x='16' y='23' font-family='serif' font-weight='700' font-size='14' fill='white'>$</text></svg>">
   <link rel="stylesheet" href="css/styles.css"/>
   <!-- SEO & Social -->
   <meta name="description" content="Get a personalized salary negotiation strategy with exact scripts, market data, and tactics." />
@@ -15,13 +16,16 @@
   <meta property="og:url" content="https://rigor.design/salary" />
   <meta property="og:title" content="Rigor Salary — Negotiation Helper" />
   <meta property="og:description" content="Get a personalized salary negotiation strategy with exact scripts, market data, and tactics." />
-  <meta property="og:image" content="https://rigor.design/og-image.png" />
+  <meta property="og:image" content="./og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Rigor Salary — Negotiation Helper" />
   <meta name="twitter:description" content="Get a personalized salary negotiation strategy with exact scripts, market data, and tactics." />
-  <meta name="twitter:image" content="https://rigor.design/og-image.png" />
+  <meta name="twitter:image" content="./og-image.jpg" />
 
   <!-- Theme color -->
   <link rel="manifest" href="/manifest.json" />
@@ -31,7 +35,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" aria-label="Main navigation">
     <a href="/" class="nav-brand">rigor<span>.</span>design</a>
-    <div class="nav-links"><span class="plan-badge hidden" id="plan-badge"></span><a href="#" id="nav-login" class="nav-link">Sign In</a><button class="btn-upgrade-nav" id="nav-upgrade" class="btn-upgrade-nav nav-upgrade-hidden">⚡ Upgrade</button><button class="btn-icon" id="nav-manage" class="btn-icon nav-manage-hidden">Manage Plan</button><a href="#" id="nav-signup" class="btn-nav">Get Started</a></div>
+    <div class="nav-links"><span class="plan-badge hidden" id="plan-badge"></span><a href="#" id="nav-login" class="nav-link">Sign In</a><a href="https://buy.stripe.com/4gM3cu7p6dux8Ko1Fx8k804" class="btn-upgrade-nav" id="nav-upgrade">⚡ Upgrade to Pro - $9.99/mo</a><button class="btn-icon nav-manage-hidden" id="nav-manage">Manage Plan</button><a href="#" id="nav-signup" class="btn-nav">Get Started</a></div>
   </nav>
   <div class="modal-overlay hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
     <div class="modal">
@@ -59,7 +63,7 @@
           <label class="field-label">Company</label>
           <input type="text" class="input" id="company" placeholder="Company name"/>
           <label class="field-label">Offered Salary</label>
-          <input type="text" class="input" id="offered-salary" placeholder="e.g. $120,000"/>
+          <input type="text" class="input" id="offered-salary" placeholder="e.g. $120,000 or 120k"/>
           <label class="field-label">Location</label>
           <input type="text" class="input" id="location" placeholder="e.g. New York, NY or Remote"/>
           <label class="field-label">Benefits Offered</label>
@@ -68,7 +72,7 @@
         <div class="tool-panel">
           <div class="panel-header"><span class="panel-num">02</span><h2>Your Background</h2></div>
           <label class="field-label">Years of Experience</label>
-          <input type="number" class="input" id="years-exp" placeholder="e.g. 7"/>
+          <input type="number" class="input" id="years-exp" min="0" max="60" step="1" placeholder="e.g. 7"/>
           <label class="field-label">Current Salary</label>
           <input type="text" class="input" id="current-salary" placeholder="e.g. $105,000 (optional)"/>
           <label class="field-label">Target Salary</label>
@@ -81,7 +85,7 @@
       </div>
 
       <div class="tool-actions">
-        <button class="btn-primary large" id="btn-generate" aria-label="Generate content"><span class="btn-text">Build My Negotiation Strategy</span><span class="btn-loader hidden">Analyzing market data...</span></button>
+        <button class="btn-primary large" id="btn-generate" aria-label="Generate content"><span class="btn-text">Build My Negotiation Strategy</span><span class="btn-loader hidden">Building your strategy...</span></button>
       </div>
 
       <div class="results hidden" id="results">
@@ -92,8 +96,16 @@
     </div>
   </section>
 
-  <footer class="footer"><p>© 2025 rigor.design</p></footer>
-  <script type="module" src="js/app.js"></script>
+  <footer class="footer">
+    <nav class="footer-tools" aria-label="Other rigor.design tools"><a href="https://rigor.design">All tools</a> <a href="https://resume.rigor.design">Resume Analyzer</a> <a href="https://cover.rigor.design">Cover Letters</a> <a href="https://interview.rigor.design">Interview Coach</a> <a href="https://linkedin.rigor.design">LinkedIn Optimizer</a> <a href="https://networking.rigor.design">Networking Emails</a> <a href="https://portfolio.rigor.design">Portfolio Review</a></nav>
+    <p>© 2025 rigor.design</p>
+  </footer>
+  <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script src="js/app.js" type="module"></script>
 
   <script>
     if ('serviceWorker' in navigator) {

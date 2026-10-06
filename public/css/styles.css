@@ -856,3 +856,42 @@ body {
   --gray-700:    #D1D5DB;
   --text:        #F9FAFB;
 }
+
+/* ============================================================
+   UI REVIEW FIXES (2026-10)
+   ============================================================ */
+/* Contrast: --gray-400 (#9E9A90) on off-white is ~2.6:1; use --gray-700 */
+.footer { color: var(--gray-700); }
+.result-block h4 { color: var(--gray-700); }
+.footer-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.25rem; margin-bottom: .75rem; }
+.footer-tools a { color: var(--navy); text-decoration: none; font-weight: 500; }
+.footer-tools a:hover { text-decoration: underline; }
+.nav-links { flex-wrap: wrap; justify-content: flex-end; row-gap: .5rem; }
+.btn-icon { background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 8px; padding: .4rem .85rem; font-size: .85rem; cursor: pointer; color: var(--text); font-family: inherit; }
+.btn-icon:hover { background: var(--gray-200); }
+.optimized-text { white-space: pre-wrap; }
+.profile-score { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); }
+
+/* Error state (replaces fabricated fallback results) */
+.tool-error { margin: 1.5rem auto 0; max-width: 720px; background: #FDF2F2; border: 1px solid #F5C2C0; border-left: 4px solid #C0392B; border-radius: var(--radius); padding: 1.25rem 1.5rem; color: #5A1A14; }
+.tool-error.hidden { display: none; }
+.tool-error-title { font-weight: 700; margin-bottom: .25rem; }
+.tool-error-msg { margin-bottom: .25rem; }
+.tool-error-note { font-size: .85rem; margin-bottom: .75rem; }
+.tool-error-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+@media (prefers-color-scheme: dark) {
+  /* --white is redefined to a dark surface colour in dark mode; text that sits on
+     navy must stay literally white. */
+  .hero, .btn-nav, .btn-secondary:hover, .score-card, .salary-range-card, .type-btn.active { color: #FFFFFF; }
+  .range-fill.high { background: #FFFFFF; }
+  .strategy-card h4, .profile-score, .footer-tools a { color: var(--gold); }
+  .tool-error { background: #2A1414; border-color: #6B2A24; border-left-color: #E06C5F; color: #F6D6D2; }
+}
+.range-disclaimer { font-size: .8rem; opacity: .85; margin: -1rem 0 1.25rem; }
+.range-note { margin-top: .75rem; font-size: .9rem; color: var(--gold-light); }
+.range-assessment { opacity: .9; }
+@media (max-width: 420px) {
+  .range-item { grid-template-columns: 1fr auto; }
+  .range-item .range-bar { grid-column: 1 / -1; grid-row: 2; }
+}
