@@ -15,7 +15,7 @@ authService.onAuthChanged(async user => {
   if (navLoginEl) navLoginEl.textContent = user ? "Sign Out" : "Sign In";
   document.getElementById("nav-signup")?.classList.toggle("nav-signup-hidden", !!user);
   await initPaywall(user ? user.uid : null);
-  if (user) renderUsageMeter("usage-meter-container", "uses");
+  if (user) renderUsageMeter("usage-meter-container", "analyses");
 });
 document.getElementById("nav-upgrade")?.addEventListener("click", () => showPricingModal("pro"));
 document.getElementById("nav-manage")?.addEventListener("click", () => showPricingModal("pro"));
