@@ -1,5 +1,5 @@
 import { initPaywall, gate, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
-import { validators, guardSubmit } from "./utils/validate.js";
+import { validators, guardSubmit, setFieldError } from "./utils/validate.js";
 import { saveDoc, getUserDocs, tsToString } from "./services/firestoreService.js";
 import { apiFetch } from "./config/env.js";
 import { toast } from "./utils/toast.js";
@@ -17,7 +17,7 @@ authService.onAuthChanged(async user => {
   await initPaywall(user ? user.uid : null);
   if (user) renderUsageMeter("usage-meter-container", "analyses");
 });
-document.getElementById("nav-upgrade")?.addEventListener("click", () => showPricingModal("pro"));
+document.getElementById("nav-upgrade")?.addEventListener("click", (e) => { e.preventDefault(); showPricingModal("pro"); });
 document.getElementById("nav-manage")?.addEventListener("click", () => showPricingModal("pro"));
 
 initAuthModal(authService);
@@ -86,11 +86,13 @@ async function buildStrategy() {
   const offeredRaw = val("offered-salary");
   if (!(parseMoney(offeredRaw) > 0)) {
     document.getElementById("offered-salary").focus();
+    setFieldError("offered-salary", "Offered salary must be a number, e.g. 120000, $120,000 or 120k.");
     return toast.warning("Offered salary must be a number, e.g. 120000, $120,000 or 120k.");
   }
   const targetRaw = val("target-salary");
   if (targetRaw && !(parseMoney(targetRaw) > 0)) {
     document.getElementById("target-salary").focus();
+    setFieldError("target-salary", "Target salary must be a number, e.g. 140000 or 140k.");
     return toast.warning("Target salary must be a number, e.g. 140000 or 140k.");
   }
 

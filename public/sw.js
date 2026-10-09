@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "rigor-salary-v3"; // bumped: v1 cached a broken env.js (SyntaxError)
+const CACHE_NAME = "rigor-salary-v4"; // bumped: cache-first SW must drop pre-gate HTML/JS (RIGOR-PAY-BEFORE-API)
 const STATIC_ASSETS = [
   "/",
   "/index.html",
