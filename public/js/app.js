@@ -1,4 +1,4 @@
-import { initPaywall, gate, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
+import { initPaywall, gate, requirePro, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
 import { validators, guardSubmit, setFieldError } from "./utils/validate.js";
 import { saveDoc, getUserDocs, tsToString } from "./services/firestoreService.js";
 import { apiFetch } from "./config/env.js";
@@ -98,6 +98,8 @@ async function buildStrategy() {
 
   const payload = { jobTitle: val("job-title"), company: val("company"), offeredSalary: offeredRaw, location: val("location"), benefits: val("benefits"), yearsExp: val("years-exp"), currentSalary: val("current-salary"), targetSalary: targetRaw, competing: val("competing"), achievements: val("achievements") };
 
+  // #94: paid from first use (opens the pricing modal when not subscribed).
+  if (!(await requirePro("analyses"))) return;
   clearToolError();
   document.getElementById("results").classList.add("hidden");
   setBusy(true);

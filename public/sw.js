@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "rigor-salary-v6"; // bumped: cache-first SW must pick up the MOBILE-WARN header CSS
+const CACHE_NAME = "rigor-salary-v7"; // bumped: cache-first SW must pick up the #94 paid-from-first-use paywall JS
 const STATIC_ASSETS = [
   "/",
   "/index.html",
