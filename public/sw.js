@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "rigor-salary-v5"; // bumped: cache-first SW must drop pre-gate HTML/JS (RIGOR-PAY-BEFORE-API)
+const CACHE_NAME = "rigor-salary-v6"; // bumped: cache-first SW must pick up the MOBILE-WARN header CSS
 const STATIC_ASSETS = [
   "/",
   "/index.html",
