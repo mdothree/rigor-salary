@@ -281,7 +281,7 @@ body {
 .range-fill.high { background:var(--white); }
 .range-fill.target { background:var(--gold); }
 .range-val { font-weight:600; text-align:right; }
-.range-assessment { margin-top:1.25rem; opacity:.75; font-size:.9rem; font-style:italic; }
+.range-assessment { margin-top:1.25rem; opacity:.75; font-size:.9rem; font-style:normal; }
 
 .strategy-sections { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
 @media(max-width:700px){ .strategy-sections{grid-template-columns:1fr;} }
@@ -292,7 +292,7 @@ body {
 .strategy-card ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
 .strategy-card ul li { font-size:.9rem; padding-left:1.2rem; position:relative; }
 .strategy-card ul li::before { content:'→'; position:absolute; left:0; color:var(--gold); }
-.strategy-card blockquote { font-size:.95rem; line-height:1.7; color:var(--text); border-left:3px solid var(--gold); padding-left:1rem; margin-bottom:1rem; font-style:italic; }
+.strategy-card blockquote { font-size:.95rem; line-height:1.7; color:var(--text); border-left:3px solid var(--gold); padding-left:1rem; margin-bottom:1rem; font-style:normal; }
 /* ============================================================
    PAYWALL & STRIPE EMBEDDED — Shared Styles
    Injected into every project's styles.css
@@ -950,3 +950,6 @@ body {
   .section-header h2, .history-title, .result-toolbar h3, .complete-card h2 { color: var(--text); }
   .panel-num { color: var(--gray-400); }
 }
+
+/* No italics (Principal 10-16): emphasis by colour or weight. */
+em, i, cite, q, dfn, var, address { font-style: normal; }
